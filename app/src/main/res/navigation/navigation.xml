@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/genreFragment">
+
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="kedaiapps.projeku.testmandiri.ui.home.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" >
+        <argument
+            android:name="genreId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_movieFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genreFragment"
+        android:name="kedaiapps.projeku.testmandiri.ui.home.GenreFragment"
+        android:label="fragment_genre"
+        tools:layout="@layout/fragment_genre" >
+        <action
+            android:id="@+id/action_genreFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="kedaiapps.projeku.testmandiri.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="kedaiapps.projeku.testmandiri.ui.home.ReviewFragment"
+        android:label="fragment_review"
+        tools:layout="@layout/fragment_review" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+        <argument
+            android:name="posterPath"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_reviewFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="kedaiapps.projeku.testmandiri.ui.home.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_youtubeFragment"
+            app:destination="@id/youtubeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/youtubeFragment"
+        android:name="kedaiapps.projeku.testmandiri.ui.home.YoutubeFragment"
+        android:label="fragment_youtube"
+        tools:layout="@layout/fragment_youtube" >
+        <argument
+            android:name="movie_id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
